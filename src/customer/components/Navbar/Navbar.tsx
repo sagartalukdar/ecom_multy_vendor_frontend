@@ -64,7 +64,7 @@ const Navbar = () => {
                   {customer.profile?
                     <Button onClick={()=>navigate("/account/orders")} className='flex items-center gap-2'>
                       <Avatar>
-                        {customer.profile?.fullName[0].toUpperCase()}
+                        {customer.profile?.fullName?.[0].toUpperCase()}
                       </Avatar>
                     </Button>:
                     <Button onClick={()=>navigate("/login")} variant='outlined'>Login</Button>
