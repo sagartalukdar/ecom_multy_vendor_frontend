@@ -16,7 +16,7 @@ const Orders = () => {
         <p>from anytime</p>
       </div>
       <div className="space-y-2">
-        {customerOrder.orders?.map((order)=>order.orderItems?.map((orderItem,index)=><OrderItem key={index} order={order} item={orderItem} />))}
+        {customerOrder.orders.length>0 && customerOrder.orders.map((order)=>order?.orderItems?.map((orderItem,index)=><OrderItem key={index} order={order} item={orderItem} />))}
       </div>
     </div>
   )
