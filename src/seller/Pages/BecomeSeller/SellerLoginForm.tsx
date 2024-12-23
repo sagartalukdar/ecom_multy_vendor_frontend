@@ -1,12 +1,13 @@
-import { Box, Button, TextField } from '@mui/material'
+import { Box, Button, CircularProgress, TextField } from '@mui/material'
 import { useFormik } from 'formik'
 import React from 'react'
-import { useAppDispatch } from '../../../Redux/Store'
+import { useAppDispatch, useAppSelector } from '../../../Redux/Store'
 import { sendLoginSignupOtp } from '../../../Redux/Auth/AuthSlice'
 import { sellerSignin } from '../../../Redux/Seller/SellerSlice'
 
 const SellerLoginForm = () => {
   const dispatch=useAppDispatch();
+  const {auth,seller}=useAppSelector(store=>store);
 
   const formik=useFormik({
     initialValues:{
@@ -23,7 +24,7 @@ const SellerLoginForm = () => {
      dispatch(sendLoginSignupOtp({email:formik.values.email}))
   }  
 
-   return (
+  return (
     <Box>
     <div className='space-y-5'>
       <h1 className="text-center font-bold text-xl text-primary-color">Login as seller</h1>
